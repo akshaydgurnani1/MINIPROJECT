@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Restaurant Review</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='food-favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<!-- Website Title -->
+<div class="container">
+    <h2 class='container-heading'><span class="heading_font">Restaurant Review's</span> Sentiment Analyser</h2>
+    <div class='description'>
+        <p>Created by Khyati, Sanika, Akshay</p>
+    </div>
+</div>
+
+<!-- Text Area with Autocomplete -->
+<div class="ml-container">
+    <form action="{{ url_for('predict') }}" method="POST">
+        <!-- Add an id to the textarea for easy selection -->
+        <textarea id="review-text" class='message-box' name="message" rows="15" cols="75" placeholder="Enter Your Review Here..."></textarea><br/>
+        <input type="submit" class="my-cta-button" value="Predict">
+    </form>
+</div>
+<!-- Script for Autocomplete -->
+<script>
+$(document).ready(function() {
+    // Fetch suggestions for words based on user input
+    $('#review-text').on('input', function() {
+        var input = $(this).val();
+        // Call a function to fetch suggestions and display them
+        fetchSuggestions(input);
+    });
+    
+    function fetchSuggestions(input) {
+        // You can use AJAX to fetch recommendations from the server
+        $.ajax({
+            url: '/recommendations', // URL to fetch recommendations
+            type: 'GET',
+            data: {input: input}, // Pass user input as data
+            success: function(response) {
+                // Display the suggestions in a dropdown menu
+                var dropdown = $('#suggestions-dropdown');
+                dropdown.empty();
+                response.forEach(function(suggestion) {
+                    dropdown.append('<option value="' + suggestion + '">');
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching recommendations:', error);
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>

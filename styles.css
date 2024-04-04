@@ -1,0 +1,116 @@
+html {
+	height: 100%;
+	margin: 0;
+  }
+  
+  body {
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  /* Website Title */
+  .container {
+	padding: 30px;
+	position: relative;
+	background: linear-gradient(45deg, #f0f8ff, #f0f8ff, #e6f0fa, #dcedf2, #d3d9e0);
+	background-size: 500% 500%;
+	animation: change-gradient 10s ease-in-out infinite;
+  }
+  
+  @keyframes change-gradient {
+	0% {
+	  background-position: 0 50%;
+	}
+	50% {
+	  background-position: 100% 50%;
+	}
+	100% {
+	  background-position: 0 50%;
+	}
+  }
+  
+  .container-heading {
+	margin: 0;
+  }
+  
+  .heading_font {
+	color: #3f51b5; /* Adjust for accent color */
+	font-family: "Sacramento", cursive; /* Example cursive font */
+	font-size: 27px;
+  }
+  
+  .description p {
+	font-style: italic;
+	font-size: 16px; /* Slightly larger for readability */
+	margin: 3px 0 0;
+  }
+  
+  /* Text Area */
+  .ml-container {
+	margin: 30px 0;
+	flex: 1 0 auto;
+  }
+  
+  .message-box {
+	margin-bottom: 20px;
+  }
+  
+  /* Predict Button */
+  .my-cta-button {
+	background: #3f51b5; /* Accent color */
+	color: #fff; /* White text for better contrast */
+	border: none; /* Remove border */
+	border-radius: 5px; /* Rounded corners */
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); /* Subtle shadow */
+	padding: 15px 30px;
+	font: italic bold 20px/1 "Lato", sans-serif; /* Example font */
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+  }
+  
+  .my-cta-button:hover {
+	background: #4d64c4; /* Darker shade on hover */
+  }
+  
+  .my-cta-button:active {
+	transform: scale(0.98); /* Slight button press animation */
+  }
+  
+  /* Footer */
+  .footer {
+	font-size: 14px;
+	padding: 20px;
+	flex-shrink: 0;
+	position: relative;
+	background: #f0f8ff; /* Lighter background */
+	animation: none; /* Remove gradient animation */
+  }
+  
+  .contact-icon {
+	color: #333; /* Gray for icons */
+  }
+  
+  .contact-icon:hover {
+	color: #666; /* Darker gray on hover */
+  }
+  
+  /* Results */
+  .results {
+	padding: 30px 0 0;
+	flex: 1 0 auto;
+  }
+  
+  .danger {
+	color: red; /* Negative review */
+  }
+  
+  .safe {
+	color: green; /* Positive review */
+  }
+  
